@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<title>기온</title>
+<meta charset="utf-8">
+<script>
+window.onload = showTemps;
+
+function showTemps() {
+	//배열 선언 및 할당
+	
+	var tempByHour = new Array();
+	/*tempByHour[0] = 23;
+	tempByHour[1] = 22;
+	tempByHour[2] = 21;
+	tempByHour[3] = 20;
+	tempByHour[4] = 18;
+	tempByHour[5] = 17;
+	tempByHour[6] = 15;
+	tempByHour[7] = 12;
+	*/
+	var tempByHour = ['23','22','21','20','18','17','15','12'];
+	var sumTemp =0;
+	var aveTemp =0;
+
+	for (var i = 0; i < tempByHour.length; i++) {
+		var theTemp = tempByHour[i];
+		var id = "temp" + i;
+		var lia = document.getElementById(id);
+		if (i == 0) {
+			lia.innerHTML = "정오의 기온은 " + theTemp + "도였습니다.";
+		} else {
+			lia.innerHTML = "오후 " + i + "시의 기온은 " + theTemp + "도였습니다.";
+		}
+		sumTemp = sumTemp + tempByHour[i];
+	}
+	aveTemp = sumTemp/tempByHour.length;
+	output.innerHTML = "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp평균 기온은 "
+ + aveTemp + " 입니다." ;
+}
+</script>
+</head>
+<body>
+<h1>기온</h1>
+<ul>
+	<li id="temp0"></li>
+	<li id="temp1"></li>
+	<li id="temp2"></li>
+	<li id="temp3"></li>
+	<li id="temp4"></li>
+	<li id="temp5"></li>
+	<li id="temp6"></li>
+	<li id="temp7"></li>
+</ul>
+<div id="output">
+</div>
+</body>
+</html>
+
